@@ -1,0 +1,26 @@
+services:
+  reflex-app:
+    # container_name: reflex-container
+    restart: always
+    # env_file: app/.env
+    build:
+      dockerfile: Dockerfile
+    # networks:
+      # - db_network
+    #   - web_network
+  web:
+    build: .
+    ports:
+      - "8082:8082"
+
+#     volumes:
+#       - ./nginx:/etc/nginx/conf.d
+#     networks:
+#       - web_network
+#     depends_on: 
+#       - reflex-app
+# networks:
+#   db_network:
+#     driver: bridge
+#   web_network:
+#     driver: bridge
